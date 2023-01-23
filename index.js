@@ -2,6 +2,7 @@ require("dotenv").config();
 const { Sequelize, QueryTypes, Model, DataTypes } = require("sequelize");
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialectOptions: {
@@ -22,7 +23,7 @@ Blog.init(
     },
     author: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      //allowNull: false,
     },
     url: {
       type: DataTypes.TEXT,
@@ -34,7 +35,7 @@ Blog.init(
     },
     likes: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
   },
   {
@@ -49,6 +50,32 @@ app.get("/api/blogs", async (req, res) => {
   const blogs = await Blog.findAll();
   res.json(blogs);
 });
+
+//app.post("/api/blogs", async (req, res) => {
+
+//   try {
+//     const blog = await Blog.create({
+//       author: req.body.author,
+//       url: req.body.url,
+//       title: req.body.title,
+//       likes: req.body.likes,
+//     });
+//     res.json(blog);
+//   } catch (error) {
+//     return res.status(400).json({ error });
+//   }
+
+//});
+
+app.post("/api/blogs", async (req, res) => {
+  try {
+    const blog = await Blog.create(req.body);
+    return res.json(blog);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+});
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
