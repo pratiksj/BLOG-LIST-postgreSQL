@@ -11,3 +11,6 @@ Content-type: application/json
      "title":"good food", 
      "likes":203
 }
+
+###
+DELETE http://localhost:3001/api/blogs/6

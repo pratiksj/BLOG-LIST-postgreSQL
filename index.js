@@ -88,6 +88,15 @@ app.post("/api/blogs", async (req, res) => {
   }
 });
 
+app.delete("/api/blogs/:id", async (req, res) => {
+  const blogId = req.params.id;
+  console.log(blogId, "delete");
+  const blogToDelete = await Blog.destroy({
+    where: { id: blogId },
+  });
+  res.status(203).json(blogToDelete);
+});
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
