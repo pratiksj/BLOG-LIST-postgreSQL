@@ -6,8 +6,8 @@ POST http://localhost:3001/api/blogs
 Content-type: application/json
 
 {
-    "author":"chester",
-     "url":"vox.com", 
-     "title":"hybrid nowanda", 
+    "author":"amirey",
+     "url":"himalayan.com", 
+     "title":"good food", 
      "likes":203
 }

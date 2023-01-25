@@ -51,6 +51,16 @@ app.get("/api/blogs", async (req, res) => {
   res.json(blogs);
 });
 
+app.get("/api/blogs/:id", async (req, res) => {
+  const blog = await Blog.findByPk(req.params.id);
+  if (blog) {
+    console.log(blog);
+    res.json(blog);
+  } else {
+    res.status(404).end();
+  }
+});
+
 //app.post("/api/blogs", async (req, res) => {
 
 //   try {
@@ -69,7 +79,9 @@ app.get("/api/blogs", async (req, res) => {
 
 app.post("/api/blogs", async (req, res) => {
   try {
+    console.log(req.body, "form resquest");
     const blog = await Blog.create(req.body);
+    console.log(blog.toJSON(), "snake");
     return res.json(blog);
   } catch (error) {
     return res.status(400).json({ error });
