@@ -6,11 +6,11 @@ POST http://localhost:3001/api/blogs
 Content-type: application/json
 
 {
-    "author":"amirey",
+    "author":"me",
      "url":"himalayan.com", 
-     "title":"good food", 
+     "title":"scrapping all post of ravi", 
      "likes":203
 }
 
 ###
-DELETE http://localhost:3001/api/blogs/6
+DELETE http://localhost:3001/api/blogs/7
