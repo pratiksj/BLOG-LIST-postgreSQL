@@ -4,19 +4,52 @@ GET http://localhost:3001/api/blogs
 
 POST http://localhost:3001/api/blogs
 Content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF4aXRhIiwiaWQiOjIsImlhdCI6MTY3NDk5MjE3MX0.Yo7obrJme_knHSm-o9ezPSHykJ-69rNdtZQtbdbY7bU
 
 {
- "author":"yo",
+ "author":"mahesh",
 "url":"himalayan.com", 
-"title":"scrapping all post of ravi", 
-"likes":203  
+"title":"sewage system in nepal", 
+"likes":10  
 }
 
 ###
-DELETE http://localhost:3001/api/blogs/7
+DELETE http://localhost:3001/api/blogs/13
 
 ###
 PUT  http://localhost:3001/api/blogs/2
+Content-type: application/json
+
+
+{
+    "likes":22
+}
+
+###
+POST http://localhost:3001/api/users
+Content-type: application/json
+
+{
+"username": "niru",
+"name":"niru"
+
+}
+
+###
+POST http://localhost:3001/api/login
+Content-type: application/json
+
+{
+"username": "niru",
+"password":"secret"
+
+}
+
+###
+GET http://localhost:3001/api/users
+
+###
+PUT  http://localhost:3001/api/users/
 Content-type: application/json
 
 
