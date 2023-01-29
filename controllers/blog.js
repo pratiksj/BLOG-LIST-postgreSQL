@@ -41,9 +41,11 @@ router.delete("/:id", blogFinder, async (req, res) => {
 router.put("/:id", blogFinder, async (req, res) => {
   //const blog = await Blog.findByPk(req.params.id);
   if (req.blog) {
-    req.blog.important = req.body.important;
+    //req.blog.likes = req.body.likes;
+    req.blog.likes += 1;
     await req.blog.save();
     res.json(req.blog);
+    //res.json({ likes: req.blog.likes }); getting likes only
   } else {
     res.status(404).end();
   }
