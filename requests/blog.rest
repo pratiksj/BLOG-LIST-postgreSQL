@@ -4,7 +4,7 @@ GET http://localhost:3001/api/blogs
 
 POST http://localhost:3001/api/blogs
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF4aXRhIiwiaWQiOjIsImlhdCI6MTY3NDk5MjE3MX0.Yo7obrJme_knHSm-o9ezPSHykJ-69rNdtZQtbdbY7bU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5pcnUyMzQiLCJpZCI6NSwiaWF0IjoxNjc1MDc0Njk2fQ.I61fxwvB1zoeplrTtP0O4OFOfihOUg9nJfca8ENLIaU
 
 {
  "author":"mahesh",
@@ -30,8 +30,9 @@ POST http://localhost:3001/api/users
 Content-type: application/json
 
 {
-"username": "niru",
-"name":"niru"
+"username": "shinido",
+"name":"shinido",
+"password":"password"
 
 }
 
@@ -40,8 +41,8 @@ POST http://localhost:3001/api/login
 Content-type: application/json
 
 {
-"username": "niru",
-"password":"secret"
+"username": "shinido",
+"password":"password"
 
 }
 
