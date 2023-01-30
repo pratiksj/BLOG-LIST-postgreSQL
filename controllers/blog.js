@@ -63,12 +63,15 @@ router.get("/:id", blogFinder, async (req, res) => {
   }
 });
 
-router.delete("/:id", blogFinder, async (req, res) => {
-  //const blog = await Blog.findByPk(req.params.id);
-  if (req.blog) {
-    await req.blog.destroy();
+router.delete("/:id", tokenExtractor, async (req, res) => {
+  const blogToDelete = await Blog.findByPk(req.params.id);
+  console.log(blogToDelete, "this is to delete");
+  if (req.decodedToken.id === blogToDelete.userId) {
+    await Blog.destroy({ where: { id: req.params.id } });
+    res.status(200);
+  } else {
+    res.json({ error: "You are not authorized to delete" });
   }
-  res.status(204).end();
 });
 
 router.put("/:id", blogFinder, async (req, res) => {
