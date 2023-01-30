@@ -9,15 +9,16 @@ const userFinder = async (req, res, next) => {
 };
 
 router.get("/", async (req, res) => {
-  console.log("the get entere in user");
-  const users = await User.findAll();
+  //console.log("the get entere in user");
+  //const users = await User.findAll();
 
-  // const users = await User.findAll({
-  //   include: {
-  //     model: Blog,
-  //     attributes: { exclude: ["userId"] },
-  //   },
-  // });ole.,
+  const users = await User.findAll({
+    include: {
+      model: Blog,
+      attributes: ["title"],
+    },
+    attributes: { exclude: ["passwordhash"] },
+  });
   res.json(users);
 });
 
