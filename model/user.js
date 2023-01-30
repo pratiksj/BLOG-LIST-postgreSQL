@@ -13,8 +13,11 @@ User.init(
     },
     username: {
       type: DataTypes.TEXT,
-      unique: true,
       allowNull: false,
+      validate: {
+        isEmail: true,
+      },
+      error: ["Validation is Email on username failed"],
     },
     name: {
       type: DataTypes.TEXT,

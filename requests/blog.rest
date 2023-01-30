@@ -30,8 +30,8 @@ POST http://localhost:3001/api/users
 Content-type: application/json
 
 {
-"username": "shinido",
-"name":"shinido",
+"username": "mikee",
+"name":"mikee",
 "password":"password"
 
 }
