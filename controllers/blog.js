@@ -52,10 +52,6 @@ router.post("/", tokenExtractor, async (req, res) => {
   //   userId: req.user.id,
   // };
   // const blog = await Blog.create(newBlog);
-  // res.send(blog);
-  //    catch (error) {
-  //     return res.status(400).json({ error });
-  //   }
 });
 
 router.get("/:id", blogFinder, async (req, res) => {
@@ -87,8 +83,8 @@ router.put("/:id", blogFinder, async (req, res) => {
   //     res.status(404).end();
   //   }
   req.blog.likes = req.body.likes;
-  console.log(req.blog.toJSON());
-  console.log(req.body.likes, "hellow");
+  //console.log(req.blog.toJSON());
+  //console.log(req.body.likes, "hellow");
   await req.blog.save();
   res.json(req.blog);
   //res.json({"likes":req.blog.likes}) getting likes only

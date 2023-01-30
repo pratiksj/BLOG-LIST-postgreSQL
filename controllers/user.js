@@ -2,6 +2,12 @@ const bcrypt = require("bcryptjs");
 const router = require("express").Router();
 const { User, Blog } = require("../model/index");
 
+const userFinder = async (req, res, next) => {
+  //req.user = await User.findByPk(req.params.username);
+  req.user = await User.findOne({ where: { username: req.params.username } });
+  next();
+};
+
 router.get("/", async (req, res) => {
   console.log("the get entere in user");
   const users = await User.findAll();
@@ -42,6 +48,12 @@ router.get("/:id", async (req, res) => {
   } else {
     res.status(404).end();
   }
+});
+
+router.put("/:username", userFinder, async (req, res) => {
+  req.user.username = req.body.username;
+  await req.user.save();
+  res.json(req.user);
 });
 
 module.exports = router;

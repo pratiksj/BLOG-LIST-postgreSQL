@@ -57,3 +57,11 @@ Content-type: application/json
 {
     "likes":22
 }
+
+###
+PUT  http://localhost:3001/api/users/shinido
+Content-type: application/json
+
+{
+    "username":"ShinidOOO"
+}
