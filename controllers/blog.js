@@ -25,12 +25,20 @@ const tokenExtractor = (req, res, next) => {
 };
 
 router.get("/", async (req, res) => {
-  //const blogs = await Blog.findAll();
-
-  const where = {};
+  let where = {};
   if (req.query.search) {
-    where.title = { [Op.iLike]: `%${req.query.search}%` };
+    // where = {
+    //   [Op.or]: [
+    //     { title: { [Op.iLike]: `%${req.query.search}%` } },
+    //     { author: { [Op.iLike]: `%${req.query.search}%` } },
+    //   ],
+    // };
+    where[Op.or] = [
+      { title: { [Op.iLike]: `%${req.query.search}%` } },
+      { author: { [Op.iLike]: `%${req.query.search}%` } },
+    ];
   }
+
   const blogs = await Blog.findAll({
     attributes: { exclude: ["userID"] },
     include: {
@@ -81,16 +89,6 @@ router.delete("/:id", tokenExtractor, async (req, res) => {
 });
 
 router.put("/:id", blogFinder, async (req, res) => {
-  //const blog = await Blog.findByPk(req.params.id);
-  //   if (req.blog) {
-  //     //req.blog.likes = req.body.likes;
-  //     req.blog.likes += 1;
-  //     await req.blog.save();
-  //     res.json(req.blog);
-  //     //res.json({ likes: req.blog.likes }); getting likes only
-  //   } else {
-  //     res.status(404).end();
-  //   }
   req.blog.likes = req.body.likes;
   //console.log(req.blog.toJSON());
   //console.log(req.body.likes, "hellow");
