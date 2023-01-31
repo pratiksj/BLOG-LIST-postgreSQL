@@ -9,7 +9,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjcyO
 {
  "author":"RUMSAN1",
 "url":"himalayan.com", 
-"title":"INTERNSHIP1", 
+"title":"snake", 
 "likes":30  
 }
 
