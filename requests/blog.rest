@@ -7,10 +7,10 @@ Content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjcyOHByYXRpa3NoYXJhaUBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNjc1MDkxMDQxfQ.eyrXqanicVvKZ6ZFvZegEQeNuiLiPFVGnoOvvK_PoBM
 
 {
- "author":"Ambani",
+ "author":"RUMSAN1",
 "url":"himalayan.com", 
-"title":"Richest man", 
-"likes":10  
+"title":"INTERNSHIP1", 
+"likes":30  
 }
 
 ###
