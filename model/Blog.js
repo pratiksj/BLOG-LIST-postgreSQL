@@ -26,6 +26,9 @@ Blog.init(
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    year: {
+      type: DataTypes.DATE,
+    },
     // userId: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,

@@ -23,9 +23,9 @@ User.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    passwordhash: {
+    password_hash: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {

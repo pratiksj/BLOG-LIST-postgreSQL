@@ -25,7 +25,7 @@ router.post("/", async (request, response) => {
 
   console.log(user, "this is from user");
   const passwordCorrect =
-    user === null ? false : await bcrypt.compare(password, user.passwordhash);
+    user === null ? false : await bcrypt.compare(password, user.password_hash);
 
   //const passwordCorrect = body.password === "secret";
 

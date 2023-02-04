@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false,
       },
       url: {
-        type: DataTypes.DATE,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       likes: {
@@ -47,7 +47,7 @@ module.exports = {
       },
       password_hash: {
         type: DataTypes.TEXT,
-        allowNull: true,
+        allowNull: false,
       },
       updated_at: { type: DataTypes.DATE },
       created_at: { type: DataTypes.DATE },

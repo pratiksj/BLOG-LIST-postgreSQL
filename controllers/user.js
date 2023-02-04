@@ -31,15 +31,15 @@ router.post("/", async (req, res) => {
   // }
   const { username, name, password } = req.body;
   const saltRounds = 10;
-  const passwordhash = await bcrypt.hash(password, saltRounds);
+  const password_hash = await bcrypt.hash(password, saltRounds);
   const user = {
     name,
     username,
-    passwordhash,
+    password_hash,
   };
   //console.log("the be usernew ", user);
   const newUser = await User.create(user);
-  return res.status(201).json(newUser);
+  res.status(201).json(newUser);
 });
 
 router.get("/:id", async (req, res) => {
