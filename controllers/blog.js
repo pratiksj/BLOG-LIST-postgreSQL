@@ -52,12 +52,19 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", tokenExtractor, async (req, res) => {
-  const blog = await Blog.create({
-    ...req.body,
-    userId: req.decodedToken.id,
-  });
+  if (
+    Number(req.body.year) < 1991 ||
+    Number(req.body.year) > new Date().getFullYear()
+  )
+    res.json({ error: "invalid year of creation" });
+  else {
+    const blog = await Blog.create({
+      ...req.body,
+      userId: req.decodedToken.id,
+    });
 
-  res.json(blog);
+    res.json(blog);
+  }
 
   // const newBlog = {
   //   author: req.body.author,

@@ -4,13 +4,14 @@ GET http://localhost:3001/api/blogs
 
 POST http://localhost:3001/api/blogs
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjcyOHByYXRpa3NoYXJhaUBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjc1NTEwMTEyfQ.ODFGPvhb500YKzxYp1SmEpFguN863PbJpi5nKmkHXu0
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFreGl0YXJhaTc3NEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjc1NTcxNTM1fQ.pPCI80GLGiONUTRk1G4MP5J6w6Ph1IJPpnuXtEUjOFs
 
 {
- "author":"RUMSAN2",
+ "author":"RUMSAN4",
 "url":"himalayan.com", 
 "title":"pig", 
-"likes":35  
+"likes":35,
+"year":"1990"
 }
 
 ###
@@ -42,7 +43,7 @@ POST http://localhost:3001/api/login
 Content-type: application/json
 
 {
-"username": "728pratiksharai@gmail.com",
+"username": "akxitarai774@gmail.com",
 "password":"password"
 
 }

@@ -27,7 +27,7 @@ Blog.init(
       defaultValue: 0,
     },
     year: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
     },
     // userId: {
     //   type: DataTypes.INTEGER,
