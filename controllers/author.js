@@ -6,11 +6,11 @@ router.get("/", async (req, res) => {
   const author = await Blog.findAll({
     attributes: [
       "author",
-    [sequelize.fn("COUNT", sequelize.col("title")), "articles"],
-    [sequelize.fn("SUM", sequelize.col("likes")), "likes"],
+      [sequelize.fn("COUNT", sequelize.col("title")), "articles"],
+      [sequelize.fn("SUM", sequelize.col("likes")), "likes"],
     ],
-     group: ["author"],
-     order:[["likes","DESC"]],
+    group: ["author"],
+    order: [["likes", "DESC"]],
   });
   console.log(author, "this is from author");
   res.json(author);

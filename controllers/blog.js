@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const blogsRouter = require("express").Router();
 // const jwt = require("jsonwebtoken");
 // const { SECRET } = require("../utils/config");
 const { tokenExtractor } = require("../utils/middleware");
@@ -25,7 +25,7 @@ const blogFinder = async (req, res, next) => {
 //   next();
 // };
 
-router.get("/", async (req, res) => {
+blogsRouter.get("/", async (req, res) => {
   let where = {};
   if (req.query.search) {
     // where = {
@@ -52,7 +52,7 @@ router.get("/", async (req, res) => {
   res.json(blogs);
 });
 
-router.post("/", tokenExtractor, async (req, res) => {
+blogsRouter.post("/", tokenExtractor, async (req, res) => {
   if (
     Number(req.body.year) < 1991 ||
     Number(req.body.year) > new Date().getFullYear()
@@ -77,7 +77,7 @@ router.post("/", tokenExtractor, async (req, res) => {
   // const blog = await Blog.create(newBlog);
 });
 
-router.get("/:id", blogFinder, async (req, res) => {
+blogsRouter.get("/:id", blogFinder, async (req, res) => {
   //const blog = await Blog.findByPk(req.params.id);
   if (req.blog) {
     res.json(req.blog);
@@ -86,7 +86,7 @@ router.get("/:id", blogFinder, async (req, res) => {
   }
 });
 
-router.delete("/:id", tokenExtractor, async (req, res) => {
+blogsRouter.delete("/:id", tokenExtractor, async (req, res) => {
   const blogToDelete = await Blog.findByPk(req.params.id);
   console.log(blogToDelete, "this is to delete");
   if (req.decodedToken.id === blogToDelete.userId) {
@@ -97,7 +97,7 @@ router.delete("/:id", tokenExtractor, async (req, res) => {
   }
 });
 
-router.put("/:id", blogFinder, async (req, res) => {
+blogsRouter.put("/:id", blogFinder, async (req, res) => {
   req.blog.likes = req.body.likes;
   //console.log(req.blog.toJSON());
   //console.log(req.body.likes, "hellow");
@@ -106,4 +106,4 @@ router.put("/:id", blogFinder, async (req, res) => {
   //res.json({"likes":req.blog.likes}) getting likes only
 });
 
-module.exports = router;
+module.exports = blogsRouter;
