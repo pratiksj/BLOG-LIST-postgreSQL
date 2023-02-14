@@ -14,18 +14,18 @@ usersRouter.get("/", async (req, res) => {
         model: Blog,
         attributes: { exclude: ["userId"] },
       },
-      {
-        model: Blog,
-        as: "marked_blogs",
-        attributes: { exclude: ["userId"] },
-        through: {
-          attributes: [],
-        },
-        include: {
-          model: User,
-          attributes: ["name"],
-        },
-      },
+      // {
+      //   model: Blog,
+      //   as: "marked_blogs",
+      //   attributes: { exclude: ["userId"] },
+      //   through: {
+      //     attributes: [],
+      //   },
+      //   include: {
+      //     model: User,
+      //     attributes: ["name"],
+      //   },
+      // },
     ],
   });
   res.json(users);
@@ -51,18 +51,18 @@ usersRouter.get("/:id", async (req, res) => {
       {
         model: Blog,
       },
-      // {
-      //   model: Blog,
-      //   as: "marked_blogs",
-      //   attributes: { exclude: ["userId"] },
-      //   through: {
-      //     attributes: [],
-      //   },
-      //   include: {
-      //     model: User,
-      //     attributes: ["name"],
-      //   },
-      // },
+      {
+        model: Blog,
+        as: "marked_blogs",
+        attributes: { exclude: ["userId"] },
+        through: {
+          attributes: [],
+        },
+        include: {
+          model: User,
+          attributes: ["name"],
+        },
+      },
     ],
   });
   if (user) {

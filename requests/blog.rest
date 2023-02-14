@@ -43,7 +43,7 @@ POST http://localhost:3002/api/login
 Content-type: application/json
 
 {
-"username": "third",
+"username": "first",
 "password":"password"
 
 }
@@ -66,4 +66,17 @@ Content-type: application/json
 
 {
     "username":"ShinidOOO"
+}
+
+
+###
+
+POST http://localhost:3002/api/reading
+Content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpcnN0IiwiaWQiOjEsImlhdCI6MTY3NjM3MjkwNn0.pRWqaKAo0VG-dqLI9YheSrAqfwoolPjmBT9tai7wwXE
+
+{
+ "blogId":"4",
+"userId":"1",
+"isRead": true
 }
