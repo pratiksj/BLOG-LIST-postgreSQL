@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const usersRouter = require("express").Router();
-const { User, Blog } = require("../model/index");
+const { User, Blog } = require("../model");
 
 const userFinder = async (req, res, next) => {
   req.user = await User.findOne({ where: { username: req.params.username } });
@@ -12,16 +12,20 @@ usersRouter.get("/", async (req, res) => {
     include: [
       {
         model: Blog,
-        //attributes: ["title"],
+        attributes: { exclude: ["userId"] },
       },
-      // {
-      //   model: Blog,
-      //   as: "marked_blogs",
-      //   attributes: { exclude: ["userId"] },
-      //   through: {
-      //     attributes: [],
-      //   },
-      // },
+      {
+        model: Blog,
+        as: "marked_blogs",
+        attributes: { exclude: ["userId"] },
+        through: {
+          attributes: [],
+        },
+        include: {
+          model: User,
+          attributes: ["name"],
+        },
+      },
     ],
   });
   res.json(users);
@@ -42,7 +46,25 @@ usersRouter.post("/", async (req, res) => {
 });
 
 usersRouter.get("/:id", async (req, res) => {
-  const user = await User.findByPk(req.params.id);
+  const user = await User.findByPk(req.params.id, {
+    include: [
+      {
+        model: Blog,
+      },
+      // {
+      //   model: Blog,
+      //   as: "marked_blogs",
+      //   attributes: { exclude: ["userId"] },
+      //   through: {
+      //     attributes: [],
+      //   },
+      //   include: {
+      //     model: User,
+      //     attributes: ["name"],
+      //   },
+      // },
+    ],
+  });
   if (user) {
     res.json(user);
   } else {
