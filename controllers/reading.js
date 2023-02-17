@@ -43,12 +43,25 @@ readingRouter.put("/:id", tokenExtractor, async (req, res) => {
   }
 });
 
-readingRouter.delete("/:id", async (req, res) => {
-  const reading = await ReadingList.findByPk(req.params.id);
-  if (reading) {
-    await reading.destroy();
+readingRouter.delete("/:id", tokenExtractor, async (req, res) => {
+  // const reading = await ReadingList.findByPk(req.params.id);
+  // if (reading) {
+  //   await reading.destroy();
+  // }
+  // res.status(204).end();
+  const user = await User.findByPk(req.decodedToken.id);
+  console.log(JSON.stringify(user), "this is snake");
+  const readinglist = await ReadingList.findOne({
+    where: {
+      id: req.params.id,
+      userId: user.id,
+    },
+  });
+  if (!readinglist) {
+    return res.status(404).json({ error: "readinglist entry not found" });
   }
-  res.status(204).end();
+  await readinglist.destroy();
+  res.status(204).json({ message: "successful deletion" });
 });
 
 module.exports = readingRouter;

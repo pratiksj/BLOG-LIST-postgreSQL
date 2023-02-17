@@ -73,10 +73,10 @@ Content-type: application/json
 
 POST http://localhost:3002/api/reading
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2NzY2MjUxNzl9.pBfTzM4mIKl8JG9OLeu-cUP4yZxWkZ6BVRlfTeMRyoc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2NzY2MjgyMDJ9.yCjsqQleaIRnPA5NSVfMuaZifNJpdwNCPmyS_IHyUeQ
 
 {
- "blogId":"5",
+ "blogId":"6",
 "userId":"2",
 "isRead": true
 }
@@ -92,6 +92,6 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY
 }
 
 ###
-DELETE  http://localhost:3002/api/reading/3
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpcnN0IiwiaWQiOjEsImlhdCI6MTY3NjM3MjkwNn0.pRWqaKAo0VG-dqLI9YheSrAqfwoolPjmBT9tai7wwXE
+DELETE  http://localhost:3002/api/reading/17
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2NzY2MjgyMDJ9.yCjsqQleaIRnPA5NSVfMuaZifNJpdwNCPmyS_IHyUeQ
 
