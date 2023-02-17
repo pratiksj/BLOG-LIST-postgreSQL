@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const usersRouter = require("express").Router();
-const { User, Blog } = require("../model");
+const { User, Blog, ReadingList } = require("../model");
 
 const userFinder = async (req, res, next) => {
   req.user = await User.findOne({ where: { username: req.params.username } });
@@ -9,23 +9,24 @@ const userFinder = async (req, res, next) => {
 
 usersRouter.get("/", async (req, res) => {
   const users = await User.findAll({
+    attributes: { exclude: ["passwordHash"] },
     include: [
       {
         model: Blog,
         attributes: { exclude: ["userId"] },
       },
-      // {
-      //   model: Blog,
-      //   as: "marked_blogs",
-      //   attributes: { exclude: ["userId"] },
-      //   through: {
-      //     attributes: [],
-      //   },
-      //   include: {
-      //     model: User,
-      //     attributes: ["name"],
-      //   },
-      // },
+      {
+        model: Blog,
+        as: "marked_blogs",
+        attributes: { exclude: ["userId"] },
+        through: {
+          attributes: ["isRead"],
+        },
+        // include: {
+        //   model: User,
+        //   attributes: ["name"],
+        // },
+      },
     ],
   });
   res.json(users);
@@ -47,29 +48,21 @@ usersRouter.post("/", async (req, res) => {
 
 usersRouter.get("/:id", async (req, res) => {
   const user = await User.findByPk(req.params.id, {
+    attributes: { exclude: ["passwordHash"] },
     include: [
-      {
-        model: Blog,
-      },
       {
         model: Blog,
         as: "marked_blogs",
         attributes: { exclude: ["userId"] },
         through: {
-          attributes: [],
-        },
-        include: {
-          model: User,
-          attributes: ["name"],
+          //attributes: ["id", "isRead"],
+          attributes: ["id", "isRead"],
         },
       },
     ],
   });
-  if (user) {
-    res.json(user);
-  } else {
-    res.status(404).end();
-  }
+
+  res.json(user);
 });
 
 usersRouter.put("/:username", userFinder, async (req, res) => {
