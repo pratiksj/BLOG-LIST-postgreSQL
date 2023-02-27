@@ -5,10 +5,11 @@ const router = require("express").Router();
 
 const config = require("../utils/config");
 const User = require("../model/user");
+const Session = require("../model/session");
 
 router.post("/", async (request, response) => {
   const { username, password } = request.body;
-  console.log(request, "you");
+  //console.log(request, "you");
 
   const user = await User.findOne({
     where: {
@@ -16,7 +17,7 @@ router.post("/", async (request, response) => {
     },
   });
 
-  console.log(user, "this is from user");
+  //console.log(user, "this is from user");
   const passwordCorrect =
     user === null ? false : await bcrypt.compare(password, user.passwordHash);
 
@@ -26,12 +27,17 @@ router.post("/", async (request, response) => {
     });
   }
 
+  // if (user.disabled) {
+  //   return response.status(401).json({ error: "user account is disabled" });
+  // }
   const userForToken = {
     username: user.username,
     id: user.id,
   };
 
   const token = jwt.sign(userForToken, config.SECRET);
+  await Session.create({ token, userId: user.id });
+  //const session = await Session.create({ token });
 
   response
     .status(200)
