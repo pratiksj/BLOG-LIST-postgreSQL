@@ -1,6 +1,6 @@
 const readingRouter = require("express").Router();
 const { Blog, User, ReadingList } = require("../model");
-const { tokenExtractor } = require("../utils/middleware");
+const { tokenExtractor, sessionChecker } = require("../utils/middleware");
 
 readingRouter.get("/", async (req, res, next) => {
   const reading = await ReadingList.findAll();
@@ -8,7 +8,7 @@ readingRouter.get("/", async (req, res, next) => {
   res.json(reading);
 });
 
-readingRouter.post("/", tokenExtractor, async (req, res) => {
+readingRouter.post("/", tokenExtractor, sessionChecker, async (req, res) => {
   const user = await User.findByPk(req.decodedToken.id);
   //console.log(JSON.stringify(user), "this is from decoded token");
 

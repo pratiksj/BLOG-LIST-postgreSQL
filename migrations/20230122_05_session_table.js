@@ -17,6 +17,11 @@ module.exports = {
         allowNull: false,
         references: { model: "users", key: "id" },
       },
+      expires_at: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,

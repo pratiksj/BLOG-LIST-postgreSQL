@@ -20,6 +20,10 @@ Session.init(
       allowNull: false,
       references: { model: "users", key: "id" },
     },
+    expiresAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   },
   {
     sequelize,

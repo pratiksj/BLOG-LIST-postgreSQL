@@ -1,7 +1,7 @@
 const blogsRouter = require("express").Router();
 // const jwt = require("jsonwebtoken");
 // const { SECRET } = require("../utils/config");
-const { tokenExtractor } = require("../utils/middleware");
+const { tokenExtractor, sessionChecker } = require("../utils/middleware");
 const { Op } = require("sequelize");
 const { Blog, User } = require("..//model/index");
 //const { User } = require("../model/user");
@@ -38,7 +38,7 @@ blogsRouter.get("/", async (req, res) => {
   res.json(blogs);
 });
 
-blogsRouter.post("/", tokenExtractor, async (req, res) => {
+blogsRouter.post("/", tokenExtractor, sessionChecker, async (req, res) => {
   if (
     Number(req.body.year) < 1991 ||
     Number(req.body.year) > new Date().getFullYear()

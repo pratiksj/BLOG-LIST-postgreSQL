@@ -4,13 +4,13 @@ GET http://localhost:3002/api/blogs
 
 POST http://localhost:3002/api/blogs
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRoaXJkIiwiaWQiOjEsImlhdCI6MTY3NzEzNzA0NH0.8yGIz6mbEQRJnBwohDALZqxFDfExczJumsp5hVrl9fc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpcnN0IiwiaWQiOjEsImlhdCI6MTY3NzY1MTM0OX0.YZH8idgy_hBZP8E1felPG28ixCQ694snYBczwjR5CiY
 
 {
- "author":"women",
-"url":"setopati.com", 
-"title":"pokhara", 
-"likes": 32,
+ "author":"Dolma",
+"url":"arthik dainik", 
+"title":"godar", 
+"likes": 16,
 "year":"2000"
 }
 
@@ -43,7 +43,7 @@ POST http://localhost:3002/api/login
 Content-type: application/json
 
 {
-"username": "third",
+"username": "first",
 "password":"password"
 
 }
@@ -73,10 +73,10 @@ Content-type: application/json
 
 POST http://localhost:3002/api/reading
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRoaXJkIiwiaWQiOjEsImlhdCI6MTY3NzEzODM3NX0.HQPmZEMgO7OGLkjodbIRFroBf-CgICGAfoys0plZXj0
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpcnN0IiwiaWQiOjEsImlhdCI6MTY3NzY1MTM0OX0.YZH8idgy_hBZP8E1felPG28ixCQ694snYBczwjR5CiY
 
 {
- "blogId":"2",
+ "blogId":"11",
 "userId":"2",
 "isRead": true
 }
