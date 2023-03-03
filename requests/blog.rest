@@ -4,7 +4,7 @@ GET http://localhost:3002/api/blogs
 
 POST http://localhost:3002/api/blogs
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpcnN0IiwiaWQiOjEsImlhdCI6MTY3NzY1MTM0OX0.YZH8idgy_hBZP8E1felPG28ixCQ694snYBczwjR5CiY
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2Nzc4MjQ0MTB9.oaHFg0qLWymL2B0IoEXJaEfAwsMhombF3pLVn6Pmeig
 
 {
  "author":"Dolma",
@@ -43,7 +43,7 @@ POST http://localhost:3002/api/login
 Content-type: application/json
 
 {
-"username": "first",
+"username": "second",
 "password":"password"
 
 }
@@ -95,3 +95,10 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpc
 DELETE  http://localhost:3002/api/reading/8
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpcnN0IiwiaWQiOjEsImlhdCI6MTY3Njk2MDk0Nn0.R-aV7L3zTkLdhjqaEIq8kGxGG0wbzWnDo9q5E9FgzNs
 
+###
+###
+DELETE http://localhost:3002/api/logout/31
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2Nzc4MjQ0MTB9.oaHFg0qLWymL2B0IoEXJaEfAwsMhombF3pLVn6Pmeig
+
+
+ 

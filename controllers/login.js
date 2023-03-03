@@ -39,8 +39,9 @@ router.post("/", async (request, response) => {
   await Session.create({
     token,
     userId: user.id,
-    expiresAt: new Date(Date.now() + 3 * 60 * 1000),
+    expiresAt: new Date(Date.now() + 2 * 60 * 1000),
   });
+  //console.log(Date.now(), "this is from date");
   //const session = await Session.create({ token });
   //{ expiresIn: 60 }
   response

@@ -25,8 +25,9 @@ const sessionChecker = async (req, res, next) => {
   const token = authorization.substring(7);
 
   const session = await Session.findOne({ where: { token } });
-  console.log(JSON.stringify(session), "this is from session");
-  if (!session || new Date(session.expiresAt) < new Date()) {
+  //console.log(JSON.stringify(session), "this is from session");
+  debugger;
+  if (!session || session.expiresAt < new Date()) {
     return res.status(401).json({ error: "session has expired" });
   }
   req.session = session;
