@@ -97,8 +97,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpc
 
 ###
 ###
-DELETE http://localhost:3002/api/logout/34
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2Nzc4MjUzMzR9.OmsQN5SEW8o_tXc9Z3CwDkbxp23ENjTjLjFqM3EloQE
+DELETE http://localhost:3002/api/logout
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY29uZCIsImlkIjoyLCJpYXQiOjE2Nzc4Mzk4OTJ9.gQi6h1V607YoYuGKy3Un8I7LcJAhFcjrz-WmNIFMY_0
 
 
  
